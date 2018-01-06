@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> 4th astigmatism chart</title>
+
+<link href="https://fonts.googleapis.com/css?family=Lato|Nunito" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/indexStyle.css">
+</head>
+<body>
+
+<center style="margin-top: 50px">
+<p><font size="5">Are all the radiating heavy black line of the same intensity and thickness? <br>If Yes, then click the YES button otherwise click the NO button below the image.</font></p>
+<div id="imageBox">
+    <img id="myimage31" src="images/astigmatism4.gif"  width="400" height="400"></br>  
+</div>
+
+
+
+<!-- <button onclick="btnPress()">yes</button>
+     <button onclick="btnPress()">no</button>           -->
+<button onclick="btnPress('yes')"><font size="6">yes</font></button>
+<button onclick="btnPress('no')"><font size="6">no</font></button>
+
+
+</br>
+
+<script type="text/javascript">
+
+function proceed(){
+window.location.href="astg_to_duo.html"
+}
+
+var btnPress =function(value){  
+    if (value == 'yes'){
+window.location.href="astgtoduofailed.html"
+
+
+}else if (value == 'no'){// if the user prsses no they go to the next stage
+   
+   proceed();
+}
+ 
+};   
+
+
+
+</script>
+
+
+</center>
+
+</body>
+</html> 
+

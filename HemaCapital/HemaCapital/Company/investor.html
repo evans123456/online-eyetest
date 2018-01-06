@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eye tests</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" />
+  
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand">
+                            <a href="index.html"><img src="images/logo.png" alt="hemaCapital"></a>
+                        </div>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="menu">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation"><a href="index.html" class="active">Home</a></li>
+                                <li role="presentation"><a href="services.html">Services</a></li>
+                                <li role="presentation"><a href="about.html">About Us</a></li>
+                                <li role="presentation"><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section id="main-slider" class="no-margin" style="text-align:center; ">
+        
+                                <div class="carousel-content">
+
+
+        <iframe frameborder="0" style="height: 600px; overflow:scroll; width: 800px" src="introtest.html" marginheight="1" marginwidth="1" name="cboxmain" id="cboxmain" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true">
+            
+        </iframe>
+
+                                 
+                            </div> 
+
+
+                   <div class="fl">
+    <button id="fullscreeniframe" class="button">   GO FULL SCREEN  </button> <!--go to fullscreen-->
+</div>
+
+
+    </section>
+    <!--/#main-slider-->
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <h3>SERVICES</h3>
+                        <p><a href="services.html">Salary Advance</a></p>
+                        <p><a href="services.html">Short term loans</a></p>
+                        <p><a href="services.html">Short term loans buyoff</a></p>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <h3>COMPANY</h3>
+                        <p><a href="about.html">About Us</a></p>
+                        <p><a href="contact.html">Contact Us</a></p>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <h3>CONNECT WITH US</h3>
+                        <ul class="social-network">
+                            <li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i>  Facebook</a></li>
+                            <li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i> Youtube</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+                </div>
+            </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--the go to fullscreen code-->
+
+
+
+<script type="text/javascript">
+
+(function(window, document){
+        var $ = function(selector,context){return(context||document).querySelector(selector)};
+        var iframe = $("iframe"),
+            domPrefixes = 'Webkit Moz O ms Khtml'.split(' ');
+
+        var fullscreen = function(elem) {
+            var prefix;
+            // Mozilla and webkit intialise fullscreen slightly differently
+            for ( var i = -1, len = domPrefixes.length; ++i < len; ) {
+              prefix = domPrefixes[i].toLowerCase();
+
+              if ( elem[prefix + 'EnterFullScreen'] ) {
+                // Webkit uses EnterFullScreen for video
+                return prefix + 'EnterFullScreen';
+                break;
+              } else if( elem[prefix + 'RequestFullScreen'] ) {
+                // Mozilla uses RequestFullScreen for all elements and webkit uses it for non video elements
+                return prefix + 'RequestFullScreen';
+                break;
+              }
+            }
+
+            return false;
+        };              
+        // Webkit uses "requestFullScreen" for non video elements
+        var fullscreenother = fullscreen(document.createElement("iframe"));// creates an iframe
+
+        if(!fullscreen) {
+            alert("Fullscreen won't work, please make sure you're using a browser that supports it and you have enabled the feature");
+            return;
+        }
+
+        $("#fullscreeniframe").addEventListener("click", function(){
+            // iframe fullscreen and non video elements in webkit use request over enter
+            iframe[fullscreenother]();
+        }, false);
+    })(this, this.document);
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

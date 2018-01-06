@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> 2nd astigmatism chart</title>
+<link href="https://fonts.googleapis.com/css?family=Lato|Nunito" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/indexStyle.css">
+
+</head>
+<body>
+
+<center style="margin-top: 100px">
+<p><font size="6">Compare the letters in the green to the letters in the red background</font></p>
+
+<p><font size="6">Do any of the letters seem darker?</font></p>
+<div id="imageBox">
+    <img id="myimage31" src="images/duo2.png"  width="500" height="250"></br>  
+</div>
+
+
+
+<!-- <button onclick="btnPress()">yes</button>
+     <button onclick="btnPress()">no</button>           -->
+<button onclick="btnPress('yes')"><font size="6">yes</font></button>
+<button onclick="btnPress('no')"><font size="6">no</font></button>
+
+
+</br>
+
+<script type="text/javascript">
+
+function proceed(){
+window.location.href="duo_to_col.html"
+}
+
+var btnPress =function(value){  
+    if (value == 'yes'){
+   window.location.href="4thduochrome.html"
+}else if (value == 'no'){
+
+   proceed();
+}
+ 
+};   
+
+
+
+</script>
+
+
+</center>
+
+</body>
+</html> 
+

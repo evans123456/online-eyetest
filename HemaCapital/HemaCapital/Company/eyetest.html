@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>eye tests</title>
+
+ <link rel="stylesheet" type="text/css" href="eyetest.css"> <!--link css to html-->
+ <link rel="stylesheet" type="text/css" href="C:\xampp\htdocs\project(online optometrist)\HemaCapital\HemaCapital\Company\css\interfaces.css">
+
+</head>
+<body font size="6">
+<div class="prompt"> <p>which direction is the E facing.</p> <p> Enter directions by pressing the direction</p>
+
+
+<div class="audiopart">
+	<audio controls>
+  <source src="C:\xampp\htdocs\project(online optometrist)\HemaCapital\HemaCapital\Company\audiofiles\visual_acquity.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+</div>
+
+
+<center style="margin-top: 150px">
+<input type="image" class="up" src="directions\up.gif" onclick="btnPress('up')"  width="48" height="48"></br></br>
+
+
+
+<div id ="imageBox"><!--display image on screen and size-->
+
+	<img id ="myimage01" src="imagesE/max up.png" style="width:100px "  ></br>
+</div>
+
+
+
+<div id="vision" ><!--   directions-->
+<input type="image" class="left" src="directions\left.gif" onclick="btnPress('left')"  width="48" height="48">
+<input type="image" class="down" src="directions\down.gif" onclick="btnPress('down')"  width="48" height="48">
+<input type="image" class="right" src="directions\right.gif" onclick="btnPress('right')"  width="48" height="48">
+</br>
+</div>
+
+
+
+<div id="responseBox"> <!--display the the result of the input e.g correct or wrong-->
+</div>
+
+
+
+
+<!--javascript part-->
+<script type="text/javascript"> 
+
+// declaring of variables
+var size;
+var direction = "up";//.....................................................for instantiation purposes
+var progress = 1;//........................................................to get the next image
+
+var upPassed = false; //.................................................. to confirm the letters direction if true or false
+var leftPassed = false;
+var downPassed = false;
+var rightPassed = false;
+var numberOfWrongs = 0;//.................................................number of times wronged  <2
+var i = 1;
+
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {//...................................................to allow key press
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+        // up arrow
+        btnPress('up')   
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+        btnPress('down')
+    }
+    else if (e.keyCode == '37') {
+       // left arrow
+       btnPress('left')
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+       btnPress('right')
+    }
+
+}
+
+
+
+//randomizeImage(i%4);
+
+var rand;//..................................................................................random number passed into functions
+//Example, including customisable intervals [lower_bound, upper_bound)
+var limit = 4,//............................................................................maximum number of random numbers
+    amount = 1,
+    lower_bound = 1,
+    upper_bound = 4,
+    unique_random_numbers = [];
+
+randomizePattern();//..................................................................................prototyping
+generateRandomPattern(0);
+randomizeImage(generateRandomPattern(0)[0]);
+
+console.log(randomizeImage(generateRandomPattern(0)[0]));
+
+function btnPress(directionPassed){	//..................................................from html get the directionpassed
+
+	progress++; //...................................................................... increment to the next image
+	
+	if(directionPassed == direction){ //................................................checks the direction of the E if it is equal to the one entered :P
+		console.log("correct");
+		document.getElementById("responseBox").innerHTML = "Correct"; //..................writing to html element(responsebox) correct if input is correct
+
+		randomizeImage(generateRandomPattern(progress)[i%4]); //...........................to randomize and call next E image direction
+		console.log(generateRandomPattern(progress)); //...................................generates the random number in the console 
+		i++;
+		console.log('progress:' )//................................................outputs console(this one is the one that works(that shows on the console))
+	} else {
+		document.getElementById("responseBox").innerHTML = "Wrong!";//.....................writing to html element wrong if input is wrong
+		numberOfWrongs++;//...............................................................increment the number of wrongs
+		if(numberOfWrongs >= 2){//.........................................................since two wrongs show eye problem
+			
+			showWrongsError();//...........................................................exits to show the wrongs messege
+			numberOfWrongs = 0; //..........................................................initialise the number of wrongs to zero for starting again purposes
+		} else {
+			console.log("wrong");//...........................................................outputs wrong on the console(not important)
+		}
+	}
+
+	console.log("image direction is"+direction);//..........................................comparing direction passed to the actual direction
+	console.log("direction passed is"+directionPassed);
+	
+}
+
+function generateRandomPattern(progress){ //...............................................for the progress variable to keep going to the next image
+	progress = progress;
+	if((progress >= 0) && (progress <= 3)){ //........................................ to categorise the images in the folder into groups respective of size 
+		getNewRandomPattern();//............................................................to generate new random arrays  per category
+	} else if((progress >= 4) && (progress <= 7)){ 
+		getNewRandomPattern();//...........................to allow to randomise per category
+	} else if((progress >= 8) && (progress <= 11)){
+		getNewRandomPattern();
+	}else if((progress >= 12) && (progress <= 15)){
+		getNewRandomPattern();
+	}else if((progress >= 16) && (progress <= 19)){
+		getNewRandomPattern();
+	}else if((progress >= 20) && (progress <= 23)){
+		getNewRandomPattern();
+	}else if((progress >= 24) && (progress <= 27)){
+		getNewRandomPattern();
+	}else if((progress >= 28) && (progress <= 31)){
+		getNewRandomPattern();
+	} else {//....................................................................................when progress is = 32 i.e the last image
+		
+		window.location.assign('vi_to_ast.html');
+	}//.............................................................................................after reaching the last image go to the next test
+	
+	return unique_random_numbers;//....................................................................return the generated random numbers pr category
+}
+
+function getNewRandomPattern(){
+	progressMark = progress;
+	console.log('progress:'+progress )//..................................................................output progress on the console
+	if(progressMark == 6){//.................................................................it generates its 1st time when its at 2(starts generating after 1)
+		unique_random_numbers = [];    
+		randomizePattern();//................................................................................fills in the array with random numbers
+		numberOfWrongs = 0;//............................................................................initiallise the number of 0s for every category
+	} else if(progressMark == 10){
+		unique_random_numbers = [];
+		randomizePattern();
+		numberOfWrongs = 0;
+	} else if(progressMark == 14){
+		unique_random_numbers = [];
+		randomizePattern();
+		numberOfWrongs = 0;
+	} else if(progressMark == 18){
+		unique_random_numbers = [];
+		randomizePattern();
+		numberOfWrongs = 0;
+	} else if(progressMark == 22){
+		unique_random_numbers = [];
+		randomizePattern();
+		numberOfWrongs = 0;
+	} else if(progressMark == 26){
+		unique_random_numbers = [];
+		randomizePattern();
+		numberOfWrongs = 0;
+	} else if(progressMark ==30){
+		unique_random_numbers = [];
+		randomizePattern();
+		numberOfWrongs = 0;
+	} else if(progressMark == 34){
+		unique_random_numbers = [];
+		randomizePattern();
+		numberOfWrongs = 0;
+	}
+}
+
+function randomizePattern(){
+	while (unique_random_numbers.length < limit) {//..............................................generate 4 random numbers to the unique random numbers array
+	    var random_number = Math.round(Math.random()*(upper_bound/*1*/ - lower_bound/*4*/) + lower_bound/*4*/); //...........generate random number
+	    if (unique_random_numbers.indexOf(random_number) == -1) { //.....................finds the 1st occurence of what your looking for
+	        // ...........................................................................................................Yay! new random number
+	        unique_random_numbers.push( random_number );//...............................................................add on the array
+	        randomizeImage(random_number);//......................................................................call next function
+	    }
+	}
+}
+
+function randomizeImage(rand){//.............................................................................assigning numbers to respective directions
+	if((rand == 1) ){  //....................................................................................allocate 1 to up
+		direction = "up";
+		upPassed = true;// ...................................................................................change to true
+	} else if((rand == 2)){
+		direction = "left";
+		leftPassed = true;
+	} else if((rand == 3)){
+		direction = "down";
+		downPassed = true;
+	} else if((rand == 4)){
+		direction = "right";
+		rightPassed = true;
+	}
+
+	document.getElementById("myimage01").src = "imagesE/"+getSize()+" "+direction+".png";//..................................getting the images from the file 
+
+}
+
+
+
+
+
+function showWrongsError(){
+
+if (progress <=4){
+		window.location.href="20_120vision.html"
+
+	}else if ((progress >4)&&(progress<=8)) {
+		window.location.href="20_100vision.html"
+	}
+	else if ((progress >8)&&(progress<=12)) {
+		window.location.href="20_80vision.html"
+
+	}
+	else if ((progress >12)&&(progress<=16)) {
+		window.location.href="20_60vision.html"
+
+	}
+	else if ((progress >16)&&(progress<=20)) {
+		window.location.href="20_40vision.html"
+
+	}
+	else if ((progress >20)&&(progress<=24)) {
+		window.location.href="20_20.html"//....this 3 are perfect vision
+
+	}
+	else if ((progress >24)&&(progress<=28)) {
+		window.location.href="20_20.html"
+
+	}
+	else if ((progress >28)&&(progress<=32)) {
+		window.location.href="20_20.html"
+
+	}	
+}
+
+
+
+
+function getSize(){
+	var size;
+	if((progress >= 1) && (progress <= 4)){
+		size = "max"; //.................................................................................................................as named in the file
+	} else if((progress >= 5) && (progress <= 8)){
+		size = "huge";
+	} else if((progress >= 9) && (progress <= 12)){
+		size = "lhuge";
+	}else if((progress >= 13) && (progress <= 16)){
+		size = "big";
+	}else if((progress >= 17) && (progress <= 20)){
+		size = "medium";
+	}else if((progress >= 21) && (progress <= 24)){
+		size = "smedium";
+	}else if((progress >= 25) && (progress <= 28)){
+		size = "small";
+	}else if((progress >= 29) && (progress <= 32)){
+		size = "tiny";
+     
+	}
+	return size;
+}
+
+
+
+var maximum = [0, 1, 2,3]; 
+var huge = [0, 1, 2,3]; 
+var  lhuge= [0, 1, 2,3]; 
+var big = [0, 1, 2,3]; 
+var  medium= [0, 1, 2,3]; 
+var smedium = [0, 1, 2,3]; 
+var small = [0, 1, 2,3]; 
+var tiny = [0, 1, 2,3]; 
+</script>
+
+
+</center>
+
+</body>
+</html> 
+

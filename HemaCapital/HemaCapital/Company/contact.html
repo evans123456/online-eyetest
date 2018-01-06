@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>contact | Online optometrist</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" />
+  <!--googlemaps-->
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+     <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand">
+                            <a href="index.html"><img src="images/logo.png" alt="hemaCapital"></a>
+                        </div>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="menu">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation"><a href="borrower.html" class="active">Home</a></li>
+                                <li role="presentation"><a href="services.html">Services</a></li>
+                                <li role="presentation"><a href="about.html">About Us</a></li>
+                                <li role="presentation"><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+ 
+    <div id="map" ></div>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), { //creating a new instance
+          center: {lat: -34.397, lng: 150.644},//assigning the first location when the maps launch
+          zoom: 6  // the zoom power
+        });
+
+        infoWindow = new google.maps.InfoWindow; //creating a new instance of the information window
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) { // if the browser supports geolocation
+          navigator.geolocation.getCurrentPosition(function(position) {  // get the current position
+            var pos = {
+              lat: position.coords.latitude,   //assign latitude
+              lng: position.coords.longitude    // assingn longitude
+            };
+
+            infoWindow.setPosition(pos);  // after finding the position set the information window at my current position
+            infoWindow.setContent('Location found.'); //output location found
+            infoWindow.open(map);
+            map.setCenter(pos);  
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUJbyXf0FakeFVixv0Y_GW6_FMiiPL4Hw &callback=initMap">
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--/#contact-page-->
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <h3>SERVICES</h3>
+                        <p><a href="services.html">Salary Advance</a></p>
+                        <p><a href="services.html">Short term loans</a></p>
+                        <p><a href="services.html">Short term loans buyoff</a></p>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <h3>COMPANY</h3>
+                        <p><a href="about.html">About Us</a></p>
+                        <p><a href="contact.html">Contact Us</a></p>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <h3>CONNECT WITH US</h3>
+                        <ul class="social-network">
+                            <li><a href="#" class="fb tool-tip" title="Facebook"><i class="fa fa-facebook"></i>  Facebook</a></li>
+                            <li><a href="#" class="linkedin tool-tip" title="Linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="#" class="ytube tool-tip" title="You Tube"><i class="fa fa-youtube-play"></i> Youtube</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <a href="#home" class="scrollup"><i class="fa fa-angle-up fa-3x"></i></a>
+                </div>
+            </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="https://maps.google.com/maps/api/js?key= AIzaSyC19MyUj7LPQnPN8ljxgdODa7oSUx1y0_g sensor=true"></script>
+    <script src="js/functions.js"></script>
+    <script src="contactform/contactform.js"></script>
+</body>
+
+</html>

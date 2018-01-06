@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>colourblindness test</title>
+<link rel="stylesheet" type="text/css" href="css\introtest.css">
+
+</head>
+<body>
+
+<center style="margin-top: 100px">
+<div class="audiopart">
+  <audio controls>
+  <source src="audiofiles\colourblindness.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <div class="numbertext"> 1 / 5</div>
+    <img src="images/plate1.gif" style="width:200px">
+    <div class="text"><font size="6">What number do you see</font></div>
+    <input type="radio" name="gender" value="male" onclick="normal()" > <font size="6">15</font>
+    <input type="radio" name="gender" value="male" onclick="redgreen()" > <font size="6">17</font>
+    <input type="radio" name="gender" value="male" onclick="colourblind()" > <font size="6">nothing</font>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext"> 2 / 5</div>
+    <img src="images/plate2.gif" style="width:200px">
+    <div class="text"><font size="6">What number do you see</font></div>
+        <input type="radio" name="gender" value="male" onclick="normal()" > <font size="6">8</font>
+    <input type="radio" name="gender" value="male" onclick="redgreen()" > <font size="6">3</font>
+    <input type="radio" name="gender" value="male" onclick="colourblind()" > <font size="6">nothing</font>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext"> 3 / 5</div>
+    <img src="images/plate3.gif" style="width:200px">
+    <div class="text"><font size="6">What number do you see</font></div>
+        <input type="radio" name="gender" value="male" onclick="normal()" > <font size="6">29</font>
+    <input type="radio" name="gender" value="male" onclick="redgreen()" > <font size="6">70</font>
+    <input type="radio" name="gender" value="male" onclick="colourblind()" > <font size="6">nothing</font>
+  </div>
+    <div class="mySlides fade">
+    <div class="numbertext"> 4 / 5</div>
+    <img src="images/plate4.gif" style="width:200px">
+    <div class="text"><font size="6">What number do you see</font></div>
+        <input type="radio" name="gender" value="male" onclick="normal()" > <font size="6">5</font>
+    <input type="radio" name="gender" value="male" onclick="redgreen()" > <font size="6">2</font>
+    <input type="radio" name="gender" value="male" onclick="colourblind()" > <font size="6">nothing</font>
+  </div>
+    <div class="mySlides fade">
+    <div class="numbertext"> 5/ 5</div>
+    <img src="images/plate5.gif" style="width:200px">
+    <div class="text"><font size="6">What number do you see</font></div>
+        <input type="radio" name="gender" value="male" onclick="normal()" > <font size="6">3</font>
+    <input type="radio" name="gender" value="male" onclick="redgreen()" > <font size="6">5</font>
+    <input type="radio" name="gender" value="male" onclick="colourblind()" > <font size="6">nothing</font>
+  </div>
+  </div>
+   
+
+    <div class="mySlides fade">
+    <div class="numbertext"> </div>
+   
+    
+    <input id = "click me" type="button" value="click to display results" onclick="cresults();">
+       
+
+  </div>
+  <a  class="next" onclick="next(1)">next</a> <!-- 1 is added so as to be able to increment the next-->
+</div>
+<br>
+
+<div>
+
+
+<div class="jsFunction">
+<script type="text/javascript">
+	
+//beggining of functional code	
+var slideIndex = 1;
+showSlides(slideIndex);
+var normal_count = 0; 
+var redgreen_count = 0; 
+var colourblind_count = 0; 
+
+function normal(){
+  normal_count ++; //increment the values based on the mouse click
+}
+function redgreen(){
+	redgreen_count ++;
+}
+function colourblind(){
+	colourblind_count ++;
+}
+
+function cresults(){ // show results based on performance
+  if (normal_count == redgreen_count == colourblind_count==0){
+ 	
+ 	dontproceed();
+ }
+  if (normal_count== redgreen_count== 2){
+    dontproceed();
+  }
+  if (colourblind_count== redgreen_count== 2){
+    dontproceed();
+  }
+  if (normal_count== colourblind_count== 2){
+    dontproceed();
+  }
+ if (normal_count > redgreen_count && normal_count>colourblind_count){
+ 	proceedtonorm();
+ }
+ if (redgreen_count > normal_count && redgreen_count>colourblind_count){
+ 	proceedtored();
+ }
+ if (colourblind_count > redgreen_count && colourblind_count>normal_count){
+ 	proceedtocblind();
+ }
+
+ 
+ function dontproceed(){
+   
+    window.location.href="redocolblndtst.html"
+ }
+
+}
+
+function next(n) {
+   console.log("before increment",slideIndex);
+  showSlides(slideIndex += n); //add 1 to the slide index
+  
+}
+
+
+function proceedtonorm(){
+window.location.href="colnorm_to_que.html"
+}
+function proceedtored(){
+window.location.href="colred_to_que.html"
+}
+function proceedtocblind(){
+window.location.href="colcblind_to_que.html"
+}
+
+
+function showSlides(n) { // to allow the slides to move to the next
+  console.log("after increment",slideIndex);
+  var i;
+  var slides = document.getElementsByClassName("mySlides"); // the myslides div
+ 
+  if (n > slides.length) { // if the next(button) slide reaches the maximum value
+  	proceedto();
+   //slideIndex = 1
+   //console.log(n,slides.length,"n>slides.length");
+  } 
+  if (n < 1) { // if the value of n goes less tha 1(which it doesnt)
+    slideIndex = slides.length
+    //console.log(n,slides.length,"n<1");
+  }
+  for (i = 0; i < slides.length; i++) { //loop through all images
+      slides[i].style.display = "none"; //display dem in a slideshow
+                                      //shows values from 0 to 1
+      console.log(n,"value of n",i,"value of i");
+  }
+  
+  slides[slideIndex-1].style.display = "block"; //it was incremented at the top, it is equal to n (responsible for displaying the images)
+  console.log(slideIndex,"slideIndex");
+
+}
+
+
+
+
+
+
+</script>
+</div>
+
+</center>
+
+</body>
+</html>

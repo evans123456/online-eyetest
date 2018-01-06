@@ -1,0 +1,59 @@
+body {
+    background-color: #f9f2ec;
+}
+ .prompt{
+    font-weight: 900px ;
+ 	text-align: center;
+ 	margin-top: 70px;
+ }
+ #myimage01{
+ 	position: relative;
+    top: -100px;
+ }
+
+.left{
+	float: left;
+	position: relative;
+    position: absolute;
+    margin-right: 500px;
+    z-index:101;
+    bottom:200px;
+    left: 200px;
+	
+
+    
+ }
+ .right{
+	float: right;
+	float: left;
+	position: relative;
+    position: absolute;
+    margin-right: 500px;
+    z-index:101;
+    bottom:200px;
+    left: 550px;
+
+    
+ }
+ .up{
+ 	position: relative;
+    position: absolute;
+    margin-right: 500px;
+    z-index:101;
+    top:260px;
+    left: 370px;
+ }
+  .down{
+ 	position: bottom;
+    position: absolute;
+    
+
+  	position: relative;
+    position: absolute;
+    margin-right: 500px;
+    z-index:101;
+    bottom:100px;
+    left: 370px;
+
+ }
+ 

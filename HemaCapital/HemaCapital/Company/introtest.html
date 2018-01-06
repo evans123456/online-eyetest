@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>introtest</title>
+<link rel="stylesheet" type="text/css" href="css\introtest.css">
+</head>
+<body>
+
+<center style="margin-top: 200px">
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <div class="numbertext"> 1 / 4</div>
+    <img src="images/sit1.jpg" style="width:200px">
+    <div class="text"><font size="6">1) Place yourself approximately 1 meter from the screen. as shown above</font></div>
+    
+    <audio controls>
+  <source src="audiofiles\r1.mp3" type="audio/mpeg">
+</audio>
+    
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext"> 2 / 4</div>
+    <img src="images/glasses.jpg" style="width:300px ">
+    <div class="text"><font size="6">2) If you have glasses for distance vision or glasses with progressive lenses, keep them on</font></div>
+
+    <<audio controls>>
+  <source src="audiofiles\r2.mp3" type="audio/mpeg">
+</audio>
+       
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext"> 3 / 4</div>
+    <img src="images/covereye.jpg" style="width:300px">
+    <div class="text"><font size="6">3) Without pressing on the eyelid, cover your left/right eye with your hand.</font></div>
+
+    <audio controls>
+  <source src="audiofiles\r3.mp3" type="audio/mpeg">
+</audio>
+       
+  </div>
+   <div class="mySlides fade">
+    <div class="numbertext"> 4 / 4</div>
+    <img src="images/rightdir.png" style="width:200px">
+    <div class="text"><font size="6">4 Indicate which way the open side of the E is facing with your keyboard or mouse.</font></div>
+   <audio controls>
+  <source src="audiofiles\r4.mp3" type="audio/mpeg">
+</audio>
+       
+  </div>
+  
+   
+  <br>
+  <a  class="next" onclick="next(1)">&#10095;</a>
+</div>
+<br>
+
+<div>
+
+
+<div class="jsFunction">
+<script type="text/javascript">
+  
+//beggining of functional code  
+var slideIndex = 1;
+showSlides(slideIndex);
+
+
+function next(n) {
+
+  showSlides(slideIndex += n);
+}
+
+function gohome(){
+window.location.href="legalnotice.html"
+}
+
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+
+  if (n > slides.length) {
+    
+   slideIndex = 1//go back to 1st slide
+   gohome();  //go to the next page
+
+  } 
+  if (n < 1) {
+    slideIndex = slides.length}//asign it to the last image(if you press back)
+  for (i = 0; i < slides.length; i++) {
+
+      slides[i].style.display = "none"; 
+  }
+  
+  slides[slideIndex-1].style.display = "block"; //enables it to show 1 at a time (removing it puts all instructions in a sequential form)
+  }
+
+
+
+
+
+
+</script>
+</div>
+
+</center>
+
+</body>
+</html>
+

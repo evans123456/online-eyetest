@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> 3rd duochrome chart</title>
+<link href="https://fonts.googleapis.com/css?family=Lato|Nunito" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/indexStyle.css">
+
+</head>
+<body>
+
+<center style="margin-top: 100px">
+<p><font size="6">Compare the circles in the green to the circles in the red background</font></p>
+
+<p><font size="6">Do any of the circles seem darker?</font></p>
+<div id="imageBox">
+    <img id="myimage31" src="images/duo3.jpeg"  width="500" height="250"></br>  
+</div>
+
+
+
+<!-- <button onclick="btnPress()">yes</button>
+     <button onclick="btnPress()">no</button>           -->
+<button onclick="btnPress('yes')"><font size="6">yes</font></button>
+<button onclick="btnPress('no')"><font size="6">no</font></button>
+
+
+</br>
+
+<script type="text/javascript">
+
+
+
+var btnPress =function(value){  
+    if (value == 'yes'){
+   window.location.href="duotocolfailed.html"
+}else if (value == 'no'){
+
+    window.location.href="2ndduochrome.html"
+}
+ 
+};   
+
+
+
+</script>
+
+
+</center>
+
+</body>
+</html> 
+
